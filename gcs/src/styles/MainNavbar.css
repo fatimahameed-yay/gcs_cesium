@@ -1,0 +1,110 @@
+
+@import './variables.css';
+
+.main-navbar {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1100;
+  box-shadow: 0 2px 6px var(--shadow-dark);
+  background: var(--dark-panel-bg);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.app.light .main-navbar {
+  background: var(--light-panel-bg);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.main-nav-buttons,
+.main-nav-options {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.main-navbar-btn {
+  background: rgba(70, 130, 180, 0.3);
+  color: var(--text-dark);
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border-dark);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.app.light .main-navbar-btn {
+  background: rgba(200, 200, 200, 0.3);
+  color: var(--text-light);
+  border: 1px solid var(--border-light);
+}
+
+.main-navbar-btn .main-btn-icon {
+  font-size: 20px;
+}
+
+.main-navbar-btn.active {
+  background: rgba(55, 100, 135, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px var(--glow-primary);
+}
+
+.main-navbar-btn:hover .main-btn-text {
+  display: inline;
+}
+
+.main-navbar-btn .main-btn-text {
+  display: none;
+}
+
+.main-navbar-btn:hover {
+  background: rgba(55, 100, 135, 0.6);
+}
+
+.app.light .main-navbar-btn:hover {
+  background: rgba(180, 180, 180, 0.5);
+}
+
+.main-navbar-btn.btn-danger {
+  background: rgba(239, 68, 68, 0.4);
+  border: 1px solid var(--danger-color);
+}
+
+.main-navbar-btn.btn-danger:hover {
+  background: rgba(220, 38, 38, 0.6);
+}
+
+.main-input-field {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text-dark);
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--primary-color);
+  font-size: 13px;
+}
+
+.app.light .main-input-field {
+  color: var(--text-light);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.main-input-field:focus {
+  outline: none;
+  border-color: #355d87;
+  box-shadow: 0 0 6px var(--glow-primary);
+}

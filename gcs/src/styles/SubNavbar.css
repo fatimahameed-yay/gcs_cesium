@@ -1,0 +1,152 @@
+@import './variables.css';
+
+.subnavbar {
+  display: none;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  height: 48px;
+  width: 100%;
+  z-index: 1000;
+  background: var(--dark-panel-bg);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  padding: 8px 12px;
+  box-shadow: 0 2px 6px var(--shadow-dark);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.app.light .subnavbar {
+  background: var(--light-panel-bg);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.subnavbar.connect-active,
+.subnavbar.mission-active,
+.subnavbar.telemetry-active,
+.subnavbar.controls-active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subnav-content {
+  display: flex;
+  gap: 12px;
+}
+
+.subnav-btn {
+  background: rgba(70, 130, 180, 0.3);
+  color: var(--text-dark);
+  padding: 8px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  position: relative;
+}
+
+.subnav-btn:hover::after {
+  content: attr(title);
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--dark-bg);
+  color: var(--text-dark);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.app.light .subnav-btn {
+  color: var(--text-light);
+  background: rgba(200, 200, 200, 0.3);
+}
+
+.app.light .subnav-btn:hover::after {
+  background: var(--light-bg);
+  color: var(--text-light);
+}
+
+.subnav-btn:hover {
+  background: rgba(90, 150, 200, 0.4);
+  transform: scale(1.05);
+}
+
+.subnav-btn .subnav-icon {
+  font-size: 18px;
+}
+
+.subnav-btn.btn-success {
+  background: rgba(34, 197, 94, 0.7);
+}
+
+.subnav-btn.btn-success:hover {
+  background: rgba(16, 163, 74, 0.8);
+}
+
+.subnav-btn.btn-primary {
+  background: rgba(70, 130, 180, 0.7);
+}
+
+.subnav-btn.btn-primary:hover {
+  background: rgba(55, 100, 135, 0.9);
+}
+
+.subnav-btn label {
+  cursor: pointer;
+  margin: 0;
+}
+
+.subnav-close-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--primary-color);
+  margin-left: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.subnav-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.subnav-input-field {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text-dark);
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--primary-color);
+  font-size: 13px;
+}
+
+.app.light .subnav-input-field {
+  color: var(--text-light);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.subnav-input-field:focus {
+  outline: none;
+  border-color: #355d87;
+  box-shadow: 0 0 6px var(--glow-primary);
+}
+
+.subnav-input-field.small {
+  width: 90px;
+  padding: 6px 8px;
+}

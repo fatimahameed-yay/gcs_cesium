@@ -1,0 +1,157 @@
+
+@import './variables.css';
+
+.checklist-panel {
+  background: linear-gradient(135deg, rgba(46, 55, 85, 0.8), rgba(26, 35, 55, 0.95));
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 0 20px var(--glow-primary);
+  padding: 20px;
+  border-radius: 12px;
+  color: var(--text-dark);
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  max-width: 90vw;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  z-index: 1200; /* Increased to show above map */
+  transition: transform 0.3s ease;
+}
+
+.app.light .checklist-panel {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(240, 240, 240, 0.95));
+  border: 1px solid var(--border-light);
+  box-shadow: 0 0 20px var(--shadow-light);
+  color: var(--text-light);
+}
+
+.checklist-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.checklist-panel-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: 0.5px;
+}
+
+.app.light .checklist-panel-header h3 {
+  color: var(--text-light);
+}
+
+.checklist-close-btn {
+  background: none;
+  border: none;
+  color: var(--text-dark);
+  font-size: 28px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.app.light .checklist-close-btn {
+  color: var(--text-light);
+}
+
+.checklist-close-btn:hover {
+  color: var(--danger-color);
+  transform: scale(1.1);
+}
+
+.checklist-panel-content {
+  padding: 15px;
+  max-width: 100%;
+  overflow-y: auto;
+}
+
+.checklist-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(46, 55, 85, 0.4);
+  border-radius: 8px;
+  border: 1px solid var(--border-dark);
+  transition: all 0.3s ease;
+}
+
+.app.light .checklist-item {
+  background: rgba(200, 200, 200, 0.4);
+  border: 1px solid var(--border-light);
+}
+
+.checklist-item:hover {
+  background: rgba(70, 130, 180, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--glow-primary);
+}
+
+.app.light .checklist-item:hover {
+  background: rgba(100, 100, 100, 0.5);
+  box-shadow: 0 4px 12px var(--shadow-light);
+}
+
+.checklist-item input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  accent-color: var(--success-color);
+  border-radius: 4px;
+}
+
+.checklist-item span {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.app.light .checklist-item span {
+  color: var(--text-light);
+}
+
+.checklist-proceed-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--primary-color), #355d87);
+  color: var(--text-dark);
+}
+
+.checklist-proceed-btn:hover {
+  background: linear-gradient(135deg, #355d87, var(--primary-color));
+  box-shadow: 0 0 12px var(--glow-primary);
+  transform: translateY(-2px);
+}
+
+.checklist-proceed-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.checklist-btn-icon {
+  font-size: 20px;
+}
+
+.checklist-btn-text {
+  font-size: 14px;
+}

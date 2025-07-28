@@ -1,0 +1,68 @@
+@import './variables.css';
+
+.status-bar {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  width: 180px; /* Reduced width */
+  background: linear-gradient(90deg, rgba(70, 130, 180, 0.4), rgba(26, 35, 55, 0.3));
+  -webkit-backdrop-filter: blur(15px); /* Reduced blur for smaller size */
+  backdrop-filter: blur(15px);
+  padding: 8px 10px; /* Reduced padding */
+  border-radius: 8px; /* Reduced radius */
+  border: 1px solid rgba(70, 130, 180, 0.3);
+  box-shadow: 0 0 10px var(--glow-primary); /* Reduced shadow */
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Reduced gap */
+  font-size: 11px; /* Reduced font size */
+  z-index: 1200; /* High z-index to overlay Cesium */
+  animation: statusGradientPulse 8s ease-in-out infinite;
+  color: var(--text-dark);
+  transition: transform 0.3s ease;
+}
+
+.status-bar:hover {
+  transform: scale(1.03);
+}
+
+.app.light .status-bar {
+  background: linear-gradient(90deg, rgba(107, 114, 128, 0.4), rgba(240, 240, 240, 0.3));
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  box-shadow: 0 0 10px var(--shadow-light);
+  color: var(--text-light);
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Reduced gap */
+}
+
+.status-icon {
+  font-size: 16px; /* Reduced icon size */
+  margin-right: 4px; /* Reduced margin */
+  color: var(--primary-color);
+  animation: iconSpin 12s linear infinite;
+}
+
+.status-label {
+  font-weight: 600;
+  color: #a0aec0;
+}
+
+.app.light .status-label {
+  color: #4b5563;
+}
+
+.status-value {
+  font-weight: 600;
+}
+
+.status-value.operational {
+  color: var(--success-color);
+}
+
+.status-value.critical {
+  color: var(--danger-color);
+}

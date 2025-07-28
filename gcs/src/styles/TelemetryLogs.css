@@ -1,0 +1,387 @@
+@import './variables.css';
+
+.telemetry-panel {
+  background: var(--dark-panel-bg);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-dark);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--shadow-dark);
+  color: var(--text-dark);
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  width: 600px;
+  max-width: 90vw;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  z-index: 1200; /* Increased to show above map */
+  transition: transform 0.3s ease;
+}
+
+.app.light .telemetry-panel {
+  background: var(--light-panel-bg);
+  color: var(--text-light);
+  border: 1px solid var(--border-light);
+}
+
+.telemetry-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.telemetry-panel-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: 0.5px;
+}
+
+.app.light .telemetry-panel-header h3 {
+  color: var(--text-light);
+}
+
+.telemetry-close-btn {
+  background: none;
+  border: none;
+  color: var(--text-dark);
+  font-size: 28px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.app.light .telemetry-close-btn {
+  color: var(--text-light);
+}
+
+.telemetry-close-btn:hover {
+  color: var(--danger-color);
+  transform: scale(1.1);
+}
+
+.telemetry-panel-content {
+  padding: 15px;
+  max-width: 100%;
+  overflow-y: auto;
+}
+
+.telemetry-vitals-section {
+  margin-bottom: 25px;
+}
+
+.telemetry-vitals-section h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+}
+
+.app.light .telemetry-vitals-section h4 {
+  color: var(--text-light);
+}
+
+.telemetry-vitals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.telemetry-vital-card {
+  background: rgba(46, 55, 85, 0.4);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.app.light .telemetry-vital-card {
+  background: rgba(200, 200, 200, 0.4);
+}
+
+.telemetry-circular-progress {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.telemetry-circular-progress svg {
+  width: 100%;
+  height: 100%;
+}
+
+.telemetry-progress-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 5;
+}
+
+.app.light .telemetry-progress-bg {
+  stroke: rgba(0, 0, 0, 0.1);
+}
+
+.telemetry-progress-fill {
+  fill: none;
+  stroke-width: 5;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+.telemetry-progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.telemetry-progress-value {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.telemetry-progress-label {
+  font-size: 12px;
+  color: #a0aec0;
+}
+
+.app.light .telemetry-progress-label {
+  color: #4b5563;
+}
+
+.telemetry-progress-bar {
+  margin: 12px 0;
+}
+
+.telemetry-progress-bar-label {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.telemetry-progress-bar-container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.app.light .telemetry-progress-bar-container {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.telemetry-progress-bar-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.telemetry-vital-stats {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #a0aec0;
+}
+
+.app.light .telemetry-vital-stats {
+  color: #4b5563;
+}
+
+.telemetry-vital-stats span {
+  display: block;
+  margin: 6px 0;
+}
+
+.telemetry-weather-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.telemetry-weather-display {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.telemetry-weather-icon {
+  font-size: 36px;
+  color: var(--primary-color);
+}
+
+.telemetry-weather-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.telemetry-weather-stat {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.telemetry-weather-value {
+  font-weight: 600;
+}
+
+.telemetry-weather-value.alert {
+  color: var(--danger-color);
+}
+
+.telemetry-vital-warning {
+  margin-top: 12px;
+  color: var(--danger-color);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.telemetry-vital-warning.pulse {
+  animation: pulseWarning 1.5s infinite;
+}
+
+.telemetry-feed {
+  margin-bottom: 25px;
+}
+
+.telemetry-feed h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+}
+
+.app.light .telemetry-feed h4 {
+  color: var(--text-light);
+}
+
+.telemetry-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(46, 55, 85, 0.25);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.app.light .telemetry-table {
+  background: rgba(200, 200, 200, 0.25);
+}
+
+.telemetry-table th {
+  background: rgba(70, 130, 180, 0.4);
+  color: var(--text-dark);
+  padding: 14px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.app.light .telemetry-table th {
+  background: rgba(100, 100, 100, 0.4);
+  color: var(--text-light);
+}
+
+.telemetry-table td {
+  padding: 14px;
+  border-bottom: 1px solid var(--border-dark);
+  color: var(--text-dark);
+}
+
+.app.light .telemetry-table td {
+  color: var(--text-light);
+}
+
+.telemetry-table-row:hover {
+  background: rgba(70, 130, 180, 0.2);
+}
+
+.app.light .telemetry-table-row:hover {
+  background: rgba(100, 100, 100, 0.2);
+}
+
+.telemetry-table-row.normal td:last-child {
+  background: rgba(34, 197, 94, 0.4);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.telemetry-table-row.warning td:last-child {
+  background: rgba(245, 158, 11, 0.4);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.telemetry-table-row.critical td:last-child {
+  background: rgba(239, 68, 68, 0.4);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.app.light .telemetry-table-row.normal td:last-child {
+  background: rgba(34, 197, 94, 0.6);
+  color: var(--text-light);
+}
+
+.app.light .telemetry-table-row.warning td:last-child {
+  background: rgba(245, 158, 11, 0.6);
+  color: var(--text-light);
+}
+
+.app.light .telemetry-table-row.critical td:last-child {
+  background: rgba(239, 68, 68, 0.6);
+  color: var(--text-light);
+}
+
+.telemetry-analytics-section {
+  margin-bottom: 25px;
+}
+
+.telemetry-analytics-section h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+}
+
+.app.light .telemetry-analytics-section h4 {
+  color: var(--text-light);
+}
+
+.telemetry-zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.telemetry-zoom-slider {
+  width: 160px;
+}
+
+.telemetry-zoom-value {
+  font-size: 13px;
+  color: #a0aec0;
+}
+
+.app.light .telemetry-zoom-value {
+  color: #4b5563;
+}
+
+.telemetry-graph-container {
+  background: rgba(46, 55, 85, 0.4);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.app.light .telemetry-graph-container {
+  background: rgba(200, 200, 200, 0.4);
+}

@@ -1,0 +1,343 @@
+
+@import './variables.css';
+
+.controls-panel {
+  background: linear-gradient(135deg, rgba(46, 55, 85, 0.9), rgba(26, 35, 55, 0.95));
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 0 25px var(--glow-primary);
+  padding: 15px;
+  border-radius: 16px;
+  color: var(--text-dark);
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 450px;
+  min-height: 300px;
+  max-width: 90vw;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.app.light .controls-panel {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.95));
+  border: 2px solid var(--border-light);
+  box-shadow: 0 0 25px var(--shadow-light);
+  color: var(--text-light);
+}
+
+.controls-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.controls-panel-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: 0.5px;
+}
+
+.app.light .controls-panel-header h3 {
+  color: var(--text-light);
+}
+
+.controls-close-btn {
+  background: none;
+  border: none;
+  color: var(--text-dark);
+  font-size: 28px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.app.light .controls-close-btn {
+  color: var(--text-light);
+}
+
+.controls-close-btn:hover {
+  color: var(--danger-color);
+  transform: scale(1.1);
+}
+
+.controls-panel-content {
+  padding: 15px;
+  max-width: 100%;
+  overflow-y: auto;
+}
+
+.controls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.controls-widget {
+  background: rgba(46, 55, 85, 0.6);
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid var(--primary-color);
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px var(--glow-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.app.light .controls-widget {
+  background: rgba(200, 200, 200, 0.6);
+  border: 2px solid var(--border-light);
+  box-shadow: 0 0 15px var(--shadow-light);
+}
+
+.controls-widget:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--glow-primary);
+}
+
+.app.light .controls-widget:hover {
+  box-shadow: 0 0 20px var(--shadow-light);
+}
+
+.controls-widget label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.app.light .controls-widget label {
+  color: var(--text-light);
+}
+
+.controls-joystick-container {
+  text-align: center;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 140px;
+  background: radial-gradient(circle, rgba(70, 130, 180, 0.3), rgba(46, 55, 85, 0.5));
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--glow-primary), inset 0 0 10px rgba(70, 130, 180, 0.3);
+  transition: all 0.3s ease;
+}
+
+.app.light .controls-joystick-container {
+  background: radial-gradient(circle, rgba(200, 200, 200, 0.3), rgba(240, 240, 240, 0.5));
+  border: 2px solid var(--border-light);
+  box-shadow: 0 0 20px var(--shadow-light), inset 0 0 10px rgba(100, 100, 100, 0.3);
+}
+
+.controls-joystick-container:hover {
+  box-shadow: 0 0 25px var(--glow-primary), inset 0 0 15px rgba(70, 130, 180, 0.5);
+}
+
+.app.light .controls-joystick-container:hover {
+  box-shadow: 0 0 25px var(--shadow-light), inset 0 0 15px rgba(100, 100, 100, 0.5);
+}
+
+.controls-slider {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  height: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  touch-action: none;
+}
+
+.controls-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle, var(--primary-color), #355d87);
+  border-radius: 50%;
+  border: 2px solid var(--text-dark);
+  box-shadow: 0 0 12px var(--glow-primary);
+  transition: all 0.3s ease;
+}
+
+.controls-slider::-webkit-slider-thumb:hover {
+  background: radial-gradient(circle, #355d87, var(--primary-color));
+  box-shadow: 0 0 16px var(--glow-primary);
+  transform: scale(1.1);
+}
+
+.app.light .controls-slider {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.app.light .controls-slider::-webkit-slider-thumb {
+  background: radial-gradient(circle, #6b7280, #4b5563);
+  border: 2px solid var(--text-light);
+  box-shadow: 0 0 12px var(--shadow-light);
+}
+
+.app.light .controls-slider::-webkit-slider-thumb:hover {
+  background: radial-gradient(circle, #4b5563, #6b7280);
+  box-shadow: 0 0 16px var(--shadow-light);
+}
+
+.controls-mode-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.controls-mode-selector label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.app.light .controls-mode-selector label {
+  color: var(--text-light);
+}
+
+.controls-input-field {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text-dark);
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--primary-color);
+  font-size: 13px;
+}
+
+.app.light .controls-input-field {
+  color: var(--text-light);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.controls-input-field:focus {
+  outline: none;
+  border-color: #355d87;
+  box-shadow: 0 0 6px var(--glow-primary);
+}
+
+.controls-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.controls-btn {
+  background: linear-gradient(135deg, var(--primary-color), #355d87);
+  color: var(--text-dark);
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px var(--glow-primary);
+  touch-action: none;
+}
+
+.controls-btn:hover {
+  background: linear-gradient(135deg, #355d87, var(--primary-color));
+  box-shadow: 0 0 15px var(--glow-primary);
+  transform: scale(1.1);
+  animation: buttonPulse 0.5s ease-in-out;
+}
+
+.controls-btn.btn-danger {
+  background: linear-gradient(135deg, var(--danger-color), #dc2626);
+  border: 2px solid var(--danger-color);
+}
+
+.controls-btn.btn-danger:hover {
+  background: linear-gradient(135deg, #dc2626, var(--danger-color));
+  box-shadow: 0 0 15px var(--glow-danger);
+}
+
+.controls-btn.btn-secondary {
+  background: linear-gradient(135deg, #6b7280, #4b5563);
+  border: 2px solid #6b7280;
+}
+
+.controls-btn.btn-secondary:hover {
+  background: linear-gradient(135deg, #4b5563, #6b7280);
+  box-shadow: 0 0 15px rgba(107, 114, 128, 0.6);
+}
+
+.controls-btn.btn-primary {
+  background: linear-gradient(135deg, var(--success-color), #16a34a);
+  border: 2px solid var(--success-color);
+}
+
+.controls-btn.btn-primary:hover {
+  background: linear-gradient(135deg, #16a34a, var(--success-color));
+  box-shadow: 0 0 15px var(--glow-success);
+}
+
+.app.light .controls-btn {
+  background: linear-gradient(135deg, #6b7280, #4b5563);
+  border: 2px solid #4b5563;
+}
+
+.app.light .controls-btn:hover {
+  background: linear-gradient(135deg, #4b5563, #6b7280);
+  box-shadow: 0 0 15px var(--shadow-light);
+}
+
+.app.light .controls-btn.btn-primary {
+  background: linear-gradient(135deg, var(--success-color), #16a34a);
+  border: 2px solid var(--success-color);
+}
+
+.app.light .controls-btn.btn-primary:hover {
+  background: linear-gradient(135deg, #16a34a, var(--success-color));
+  box-shadow: 0 0 15px var(--glow-success);
+}
+
+@media (max-width: 768px) {
+  .controls-panel {
+    width: 90vw;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .controls-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .controls-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+  }
+
+  .controls-slider {
+    height: 10px;
+  }
+
+  .controls-slider::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+  }
+
+  .controls-joystick-container {
+    min-height: 120px;
+  }
+}

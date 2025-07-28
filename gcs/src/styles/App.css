@@ -1,0 +1,24 @@
+@import './variables.css';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', 'Arial', sans-serif;
+  overflow: hidden;
+}
+
+.app {
+  color: var(--text-dark);
+  background: radial-gradient(circle, #2e3b55 0%, var(--dark-bg) 100%);
+  animation: bgPulse 12s infinite alternate;
+}
+
+.app.light {
+  color: var(--text-light);
+  background: linear-gradient(135deg, var(--light-bg) 0%, #e0e7ff 100%);
+}
+
+.app.training-mode {
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 0 20px var(--glow-primary);
+}

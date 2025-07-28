@@ -1,0 +1,67 @@
+.map-view-container {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  background: transparent;
+}
+
+.map-content {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+#cesiumContainer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* Keep Cesium map below panels */
+}
+
+#baseLayerPickerContainer {
+  position: absolute;
+  top: 70px;
+  right: 10px;
+  z-index: 1100;
+}
+
+.map-type-selector {
+  position: absolute;
+  top: 110px;
+  right: 10px;
+  z-index: 1100;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border-dark);
+  background: var(--dark-panel-bg);
+  color: var(--text-dark);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.app.light .map-type-selector {
+  background: var(--light-panel-bg);
+  color: var(--text-light);
+  border: 1px solid var(--border-light);
+}
+
+.map-type-selector:focus {
+  outline: none;
+  border-color: #355d87;
+  box-shadow: 0 0 6px var(--glow-primary);
+}
+
+.map-type-selector option {
+  background: var(--dark-panel-bg);
+  color: var(--text-dark);
+}
+
+.app.light .map-type-selector option {
+  background: var(--light-panel-bg);
+  color: var(--text-light);
+}
